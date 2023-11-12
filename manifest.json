@@ -5,7 +5,7 @@
   "version": "1.0",
   "content_scripts": [
     {
-      "js": ["constants.js", "utils.js", "content.js"],
+      "js": ["constants.js", "utils.js", "content_scripts/block.js"],
       "matches": ["https://etherscan.io/block/*"]
     }
   ]
