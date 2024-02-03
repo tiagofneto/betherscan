@@ -1,16 +1,15 @@
-const myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-
 async function queryRPC(endpoint, method, params) {
-    var raw = JSON.stringify({
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
       "jsonrpc": "2.0",
-      "method": method,
-      "params": params,
+      method,
+      params,
       "id": 1
     });
 
-    var requestOptions = {
+    const requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: raw,

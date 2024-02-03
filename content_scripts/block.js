@@ -10,7 +10,8 @@ function onDocumentReady() {
 };
 
 function extractBlockNumberFromURL() {
-    return window.location.pathname.split('/')[2];
+    let str = window.location.pathname.split('/')[2];
+    return '0x' + parseInt(str).toString(16);
 }
 
 async function fetchAdditionalData(blockNumber) {
@@ -39,12 +40,10 @@ const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIR
 lastElement.classList.add('mb-4');
 
 function displayDataOnPage(data) {
-
     insertElement(lastElement, data.logsBloom, "LogBloom");
     insertElement(lastElement, data.mixHash, "MixHash");
     insertElement(lastElement, data.receiptsRoot, "ReceiptsRoot");
     insertElement(lastElement, data.transactionsRoot, "TransactionsRoot");
-
 }
 
 function showLoadingIndicator() {
