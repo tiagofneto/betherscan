@@ -11,6 +11,10 @@
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/account.js"],
       "matches": ["https://etherscan.io/address/*"]
+    },
+    {
+      "js": ["utils/constants.js", "utils/utils.js", "content_scripts/transaction.js"],
+      "matches": ["https://etherscan.io/tx/*"]
     }
   ]
 }
