@@ -4,10 +4,10 @@ function onDocumentReady() {
     const xpathLast = '//*[@id="ContentPlaceHolder1_collapseContent"]/div/div[last()]';
     const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 
-    //showLoadingIndicator(lastElement);
+    showLoadingIndicator(lastElement);
 
     fetchAdditionalData(txHash).then(data => {
-        //document.getElementById("loading-indicator").remove();
+        document.getElementById("loading-indicator").remove();
         displayDataOnPage(data, lastElement);
     });
 };
@@ -41,6 +41,21 @@ function displayDataOnPage(data, lastElement) {
     insertElement(lastElement, data.s, "Signature s");
     insertElement(lastElement, data.r, "Signature r");
     insertElement(lastElement, data.v, "Siganture v");
+}
+
+function showLoadingIndicator(lastElement) {
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.setAttribute('id', 'loading-indicator');
+
+    loadingIndicator.innerHTML = `
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    `;
+
+    lastElement.parentNode.insertBefore(loadingIndicator, lastElement.nextSibling);
 }
 
 if (document.readyState === 'loading') {
