@@ -1,7 +1,7 @@
 function onDocumentReady() {
     const address = extractAddressFromURL();
 
-    const xpathLast = '//*[@id="ContentPlaceHolder1_trContract"]';
+    const xpathLast = '//*[@id="ContentPlaceHolder1_divSummary"]/div[2]/div[2]/div/div/div[last()]';
     const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 
     showLoadingIndicator(lastElement);
@@ -20,16 +20,17 @@ async function fetchAdditionalData(address) {
     return queryRPC(RPC_ENDPOINTS.MAINNET, 'eth_getProof', [address, ["0x0"],"latest"]);
 }
 
-function insertElement(afterElement, dataContent, dataTitle) {
+function insertElement(afterElement, dataContent, dataTitle, isContract = false) {
     const newElement = document.createElement('div');
     
-    let slicedData = trimHex(dataContent);
+    let slicedData = isContract ? trimHex(dataContent) : dataContent;
 
     newElement.innerHTML = `
-        <h4 class="text-cap mb-1 mt-1">
+        <h4 class="text-cap mb-1">
             ${dataTitle}
         </h4>
         <div>
+            ${isContract ? `
             <a data-bs-toggle="tooltip" data-bs-trigger="hover">
                 <span data-highlight-target="${dataContent}">${slicedData}</span>
             </a>
@@ -38,21 +39,27 @@ function insertElement(afterElement, dataContent, dataTitle) {
                 href="javascript:;" 
                 data-clipboard-text="${dataContent}" 
                 data-bs-toggle="tooltip" 
-                data-bs-trigger="hover" 
                 data-hs-clipboard-options="{ &quot;type&quot;: &quot;tooltip&quot;, &quot;successText&quot;: &quot;Copied!&quot;, &quot;classChangeTarget&quot;: &quot;#linkIcon_1&quot;, &quot;defaultClass&quot;: &quot;fa-copy&quot;, &quot;successClass&quot;: &quot;fa-check&quot; }" 
+                data-bs-trigger="hover" 
                 aria-label="Copy ${dataTitle}" 
                 data-bs-original-title="null">
         
                 <i id="linkIcon_1" class="far fa-fw fa-copy"></i> 
-            </a>
+            </a>` : slicedData}
         </div>
     `;
     afterElement.parentNode.insertBefore(newElement, afterElement.nextSibling);
 }
 
 function displayDataOnPage(data, lastElement) {
-    insertElement(lastElement, data.codeHash, "Code Hash");
-    insertElement(lastElement, data.storageHash, "Storage Root");
+    const isContract = document.getElementById("ContentPlaceHolder1_li_contracts") !== null;
+
+    if (isContract) {
+        insertElement(lastElement, data.codeHash, "Code Hash", true);
+        insertElement(lastElement, data.storageHash, "Storage Root", true);
+    } else {
+        insertElement(lastElement, data.nonce, "Nonce");
+    }
 }
 
 function showLoadingIndicator(lastElement) {
