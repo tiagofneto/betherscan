@@ -22,7 +22,7 @@ async function fetchAdditionalData(blockNumber) {
     return queryRPC(RPC_ENDPOINTS.MAINNET, 'eth_getBlockByNumber', [blockNumber, true]);
 }
 
-function insertElement(afterElement, dataContent, dataTitle) {
+function insertElement(afterElement, dataContent, dataTitle, textArea = false) {
     const newElement = document.createElement('div');
     newElement.classList.add('row', 'mb-4');
 
@@ -38,7 +38,10 @@ function insertElement(afterElement, dataContent, dataTitle) {
             ${dataTitle}:
         </div>
         <div class="col-md-9">
-            ${dataContent}
+            ${textArea ? 
+                `<textarea readonly spellcheck="false" class="scrollbar-custom form-control bg-light text-muted font-monospace" rows="4">${dataContent}</textarea>` 
+                : dataContent
+            }
         </div>
     `;
     afterElement.parentNode.insertBefore(newElement, afterElement.nextSibling);
@@ -75,7 +78,7 @@ function rlp_encode_block(block) {
 }
 
 function displayDataOnPage(data, lastElement) {
-    insertElement(lastElement, rlp_encode_block(data), "RLP");
+    insertElement(lastElement, rlp_encode_block(data), "Header RLP", true);
     insertElement(lastElement, data.logsBloom, "LogBloom");
     insertElement(lastElement, data.mixHash, "MixHash");
     insertElement(lastElement, data.receiptsRoot, "ReceiptsRoot");
