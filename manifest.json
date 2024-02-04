@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "content_scripts": [
     {
-      "js": ["utils/constants.js", "utils/utils.js", "content_scripts/block.js"],
+      "js": ["utils/constants.js", "utils/utils.js", "utils/rlp.js", "content_scripts/block.js"],
       "matches": ["https://etherscan.io/block/*"]
     },
     {

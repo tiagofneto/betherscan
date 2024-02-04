@@ -44,7 +44,38 @@ function insertElement(afterElement, dataContent, dataTitle) {
     afterElement.parentNode.insertBefore(newElement, afterElement.nextSibling);
 }
 
+function rlp_encode_block(block) {
+    console.log(block)
+    arr = [
+        block.parentHash,
+        block.sha3Uncles,
+        block.miner,
+        block.stateRoot,
+        block.transactionsRoot,
+        block.receiptsRoot,
+        block.logsBloom,
+        parseInt(block.difficulty, 16) == 0 ? "0x" : block.difficulty,
+        block.number,
+        block.gasLimit,
+        block.gasUsed,
+        block.timestamp,
+        block.extraData,
+        block.mixHash,
+        block.nonce,
+    ];
+
+    if (block.baseFeePerGas) {
+        arr.push(block.baseFeePerGas);
+    }
+    if (block.withdrawalsRoot) {
+        arr.push(block.withdrawalsRoot);
+    }
+
+    return rlp_encode(arr);
+}
+
 function displayDataOnPage(data, lastElement) {
+    insertElement(lastElement, rlp_encode_block(data), "RLP");
     insertElement(lastElement, data.logsBloom, "LogBloom");
     insertElement(lastElement, data.mixHash, "MixHash");
     insertElement(lastElement, data.receiptsRoot, "ReceiptsRoot");
