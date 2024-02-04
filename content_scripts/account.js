@@ -22,6 +22,11 @@ async function fetchAdditionalData(address) {
 
 function insertElement(afterElement, dataContent, dataTitle, isContract = false) {
     const newElement = document.createElement('div');
+
+    if (!isNumeric(dataContent)) {
+        console.error(dataTitle + " is not numeric");
+        return;
+    }
     
     let slicedData = isContract ? trimHex(dataContent) : dataContent;
 

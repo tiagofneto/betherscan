@@ -24,6 +24,11 @@ function insertElement(afterElement, dataContent, dataTitle) {
     const newElement = document.createElement('div');
     newElement.classList.add('row', 'mb-4');
 
+    if (!isNumeric(dataContent)) {
+        console.error(dataTitle + " is not numeric");
+        return;
+    }
+
     newElement.innerHTML = `
         <div class="col-md-3 text-dt mb-2 mb-md-0">
             <!-- <i class="far fa-question-circle me-1" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="top" data-original-title="" title="" data-bs-content="The root of the transactions trie"></i> -->

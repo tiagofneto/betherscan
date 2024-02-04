@@ -25,3 +25,9 @@ async function queryRPC(endpoint, method, params) {
 function trimHex(hex) {
     return hex.slice(0, 8) + "..." + hex.slice(-8);
 }
+
+function isNumeric(input) {
+    const decimalRegex = /^\d+$/;
+    const hexRegex = /^(0x|0X)?[0-9a-fA-F]+$/;
+    return decimalRegex.test(input) || hexRegex.test(input);
+}

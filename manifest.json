@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Betherscan",
   "description": "Improved Etherscan",
-  "version": "1.0",
+  "version": "0.0.1",
   "content_scripts": [
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/block.js"],
