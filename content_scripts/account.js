@@ -23,11 +23,25 @@ function insertElement(afterElement, dataContent, dataTitle) {
     let slicedData = dataContent.slice(0, 8) + "..." + dataContent.slice(-8);
 
     newElement.innerHTML = `
-        <h4 class="text-cap mb-1">
+        <h4 class="text-cap mb-1 mt-1">
             ${dataTitle}:
         </h4>
         <div>
-            ${slicedData}
+            <a data-bs-toggle="tooltip" data-bs-trigger="hover">
+                <span data-highlight-target="${dataContent}">${slicedData}</span>
+            </a>
+            <a 
+                class="js-clipboard link-secondary" 
+                href="javascript:;" 
+                data-clipboard-text="${dataContent}" 
+                data-bs-toggle="tooltip" 
+                data-bs-trigger="hover" 
+                data-hs-clipboard-options="{ &quot;type&quot;: &quot;tooltip&quot;, &quot;successText&quot;: &quot;Copied!&quot;, &quot;classChangeTarget&quot;: &quot;#linkIcon_1&quot;, &quot;defaultClass&quot;: &quot;fa-copy&quot;, &quot;successClass&quot;: &quot;fa-check&quot; }" 
+                aria-label="Copy ${dataTitle}" 
+                data-bs-original-title="null">
+        
+                <i id="linkIcon_1" class="far fa-fw fa-copy"></i> 
+            </a>
         </div>
     `;
     afterElement.parentNode.insertBefore(newElement, afterElement.nextSibling);
