@@ -7,6 +7,10 @@
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/block.js"],
       "matches": ["https://etherscan.io/block/*"]
+    },
+    {
+      "js": ["utils/constants.js", "utils/utils.js", "content_scripts/account.js"],
+      "matches": ["https://etherscan.io/address/*"]
     }
   ]
 }

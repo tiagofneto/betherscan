@@ -35,11 +35,11 @@ function insertElement(afterElement, dataContent, dataTitle) {
     afterElement.parentNode.insertBefore(newElement, afterElement.nextSibling);
 }
 
-const xpathLast = '//*[@id="collapseContent"]/div[last()]';
-const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-lastElement.classList.add('mb-4');
-
 function displayDataOnPage(data) {
+    const xpathLast = '//*[@id="collapseContent"]/div[last()]';
+    const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    lastElement.classList.add('mb-4');
+
     insertElement(lastElement, data.logsBloom, "LogBloom");
     insertElement(lastElement, data.mixHash, "MixHash");
     insertElement(lastElement, data.receiptsRoot, "ReceiptsRoot");
