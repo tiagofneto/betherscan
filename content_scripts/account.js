@@ -1,9 +1,14 @@
 function onDocumentReady() {
     const address = extractAddressFromURL();
 
+    const xpathLast = '//*[@id="ContentPlaceHolder1_trContract"]';
+    const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+    showLoadingIndicator(lastElement);
+
     fetchAdditionalData(address).then(data => {
-        //document.getElementById("loading-indicator").remove();
-        displayDataOnPage(data);
+        document.getElementById("loading-indicator").remove();
+        displayDataOnPage(data, lastElement);
     });
 };
 
@@ -17,14 +22,12 @@ async function fetchAdditionalData(address) {
 
 function insertElement(afterElement, dataContent, dataTitle) {
     const newElement = document.createElement('div');
-    //newElement.classList.add('row', 'mb-4');
     
-    // First 8 chars + ... + last 8 chars
-    let slicedData = dataContent.slice(0, 8) + "..." + dataContent.slice(-8);
+    let slicedData = trimHex(dataContent);
 
     newElement.innerHTML = `
         <h4 class="text-cap mb-1 mt-1">
-            ${dataTitle}:
+            ${dataTitle}
         </h4>
         <div>
             <a data-bs-toggle="tooltip" data-bs-trigger="hover">
@@ -47,13 +50,24 @@ function insertElement(afterElement, dataContent, dataTitle) {
     afterElement.parentNode.insertBefore(newElement, afterElement.nextSibling);
 }
 
-function displayDataOnPage(data) {
-    const xpathLast = '//*[@id="ContentPlaceHolder1_trContract"]';
-    const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    //lastElement.classList.add('mb-4');
-
+function displayDataOnPage(data, lastElement) {
     insertElement(lastElement, data.codeHash, "Code Hash");
     insertElement(lastElement, data.storageHash, "Storage Root");
+}
+
+function showLoadingIndicator(lastElement) {
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.setAttribute('id', 'loading-indicator');
+
+    loadingIndicator.innerHTML = `
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    `;
+
+    lastElement.parentNode.insertBefore(loadingIndicator, lastElement.nextSibling);
 }
 
 if (document.readyState === 'loading') {

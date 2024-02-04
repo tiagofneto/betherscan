@@ -1,11 +1,15 @@
 function onDocumentReady() {
     const blockNumber = extractBlockNumberFromURL();
 
-    showLoadingIndicator();
+    const xpathLast = '//*[@id="collapseContent"]/div[last()]';
+    const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    lastElement.classList.add('mb-4');
+
+    showLoadingIndicator(lastElement);
 
     fetchAdditionalData(blockNumber).then(data => {
         document.getElementById("loading-indicator").remove();
-        displayDataOnPage(data);
+        displayDataOnPage(data, lastElement);
     });
 };
 
@@ -35,18 +39,14 @@ function insertElement(afterElement, dataContent, dataTitle) {
     afterElement.parentNode.insertBefore(newElement, afterElement.nextSibling);
 }
 
-function displayDataOnPage(data) {
-    const xpathLast = '//*[@id="collapseContent"]/div[last()]';
-    const lastElement = document.evaluate(xpathLast, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    lastElement.classList.add('mb-4');
-
+function displayDataOnPage(data, lastElement) {
     insertElement(lastElement, data.logsBloom, "LogBloom");
     insertElement(lastElement, data.mixHash, "MixHash");
     insertElement(lastElement, data.receiptsRoot, "ReceiptsRoot");
     insertElement(lastElement, data.transactionsRoot, "TransactionsRoot");
 }
 
-function showLoadingIndicator() {
+function showLoadingIndicator(lastElement) {
     const loadingIndicator = document.createElement('div');
     loadingIndicator.setAttribute('id', 'loading-indicator');
 
@@ -60,7 +60,6 @@ function showLoadingIndicator() {
 
     lastElement.parentNode.insertBefore(loadingIndicator, lastElement.nextSibling);
 }
-
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', onDocumentReady);

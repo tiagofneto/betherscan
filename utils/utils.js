@@ -21,3 +21,7 @@ async function queryRPC(endpoint, method, params) {
       .then(data => data.result)
       .catch(error => console.error('error', error));
 }
+
+function trimHex(hex) {
+    return hex.slice(0, 8) + "..." + hex.slice(-8);
+}
