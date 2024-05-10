@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Betherscan",
-  "description": "Better Etherscan",
+  "description": "Enhancing block explorers with essential data at a glance",
   "version": "0.0.1",
   "icons": {
       "16": "icons/16.png",
