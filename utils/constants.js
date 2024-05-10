@@ -1,3 +1,3 @@
 const RPC_ENDPOINTS = {
-    MAINNET: "https://eth.llamarpc.com"
+    MAINNET: "https://ethereum.publicnode.com"
 };
