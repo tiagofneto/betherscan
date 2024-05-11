@@ -1,6 +1,9 @@
 # Betherscan
 Betherscan is a browser extension designed to enhance the user experience on block explorer platforms. By integrating additional information directly into the pages, Betherscan aims to provide a more comprehensive view of blockchain data, making it easier for developers and advanced users to gather all the information they need without the need to navigate away from the explorer.
 
+[![available in the chrome web store](https://github.com/tiagofneto/betherscan/assets/46165861/50947291-76c5-4b7e-8299-90332b21b8f6)](https://chromewebstore.google.com/detail/betherscan/nnahlkbepgjkeciakkhldbfgpfcgdhmb)
+
+
 ## Features
 Betherscan adds new data fields to various sections of block explorers, detailed as follows:
 
