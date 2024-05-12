@@ -48,7 +48,10 @@ function insertElement(afterElement, dataContent, dataTitle, textArea = false) {
 }
 
 function rlp_encode_block(block) {
-    console.log(block)
+    function process_null(num) {
+        return parseInt(num, 16) == 0 ? "0x" : num
+    }
+
     arr = [
         block.parentHash,
         block.sha3Uncles,
@@ -57,21 +60,26 @@ function rlp_encode_block(block) {
         block.transactionsRoot,
         block.receiptsRoot,
         block.logsBloom,
-        parseInt(block.difficulty, 16) == 0 ? "0x" : block.difficulty,
-        block.number,
-        block.gasLimit,
-        block.gasUsed,
-        block.timestamp,
+        process_null(block.difficulty),
+        process_null(block.number),
+        process_null(block.gasLimit),
+        process_null(block.gasUsed),
+        process_null(block.timestamp),
         block.extraData,
         block.mixHash,
         block.nonce,
     ];
 
     if (block.baseFeePerGas) {
-        arr.push(block.baseFeePerGas);
+        arr.push(process_null(block.baseFeePerGas));
     }
     if (block.withdrawalsRoot) {
         arr.push(block.withdrawalsRoot);
+    }
+    if (block.blobGasUsed) {
+        arr.push(process_null(block.blobGasUsed));
+        arr.push(process_null(block.excessBlobGas));
+        arr.push(block.parentBeaconBlockRoot);
     }
 
     return rlp_encode(arr);
