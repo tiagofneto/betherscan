@@ -60,7 +60,7 @@ function rlp_encode_block(block) {
         parseInt(block.difficulty, 16) == 0 ? "0x" : block.difficulty,
         block.number,
         block.gasLimit,
-        block.gasUsed,
+        parseInt(block.gasUsed, 16) == 0 ? "0x" : block.gasUsed,
         block.timestamp,
         block.extraData,
         block.mixHash,
