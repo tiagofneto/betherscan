@@ -17,7 +17,7 @@ function extractAddressFromURL() {
 }
 
 async function fetchAdditionalData(address) {
-    return queryRPC(RPC_ENDPOINTS.MAINNET, 'eth_getProof', [address, ["0x0"],"latest"]);
+    return queryRPC('eth_getProof', [address, ["0x0"],"latest"]);
 }
 
 function insertElement(afterElement, dataContent, dataTitle, isContract = false) {

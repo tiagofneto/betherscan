@@ -19,7 +19,7 @@ function extractBlockNumberFromURL() {
 }
 
 async function fetchAdditionalData(blockNumber) {
-    return queryRPC(RPC_ENDPOINTS.MAINNET, 'eth_getBlockByNumber', [blockNumber, true]);
+    return queryRPC('eth_getBlockByNumber', [blockNumber, false]);
 }
 
 function insertElement(afterElement, dataContent, dataTitle, textArea = false) {

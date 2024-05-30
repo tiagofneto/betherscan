@@ -1,4 +1,4 @@
-async function queryRPC(endpoint, method, params) {
+async function queryRPC(method, params) {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -15,6 +15,8 @@ async function queryRPC(endpoint, method, params) {
       body: raw,
       redirect: 'follow'
     };
+
+    const endpoint = RPC_ENDPOINTS[window.location.hostname];
 
     return fetch(endpoint, requestOptions)
       .then(response => response.json())

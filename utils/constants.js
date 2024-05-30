@@ -1,3 +1,4 @@
 const RPC_ENDPOINTS = {
-    MAINNET: "https://ethereum.publicnode.com"
+    'etherscan.io': "https://ethereum-rpc.publicnode.com",
+    'polygonscan.com': "https://polygon-bor-rpc.publicnode.com"
 };

@@ -12,15 +12,15 @@
   "content_scripts": [
     {
       "js": ["utils/constants.js", "utils/utils.js", "utils/rlp.js", "content_scripts/block.js"],
-      "matches": ["https://etherscan.io/block/*"]
+      "matches": ["https://etherscan.io/block/*", "https://polygonscan.com/block/*"]
     },
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/account.js"],
-      "matches": ["https://etherscan.io/address/*"]
+      "matches": ["https://etherscan.io/address/*", "https://polygonscan.com/address/*"]
     },
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/transaction.js"],
-      "matches": ["https://etherscan.io/tx/*"]
+      "matches": ["https://etherscan.io/tx/*", "https://polygonscan.com/tx/*"]
     }
   ]
 }
