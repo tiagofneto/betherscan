@@ -13,28 +13,31 @@
     {
       "js": ["utils/constants.js", "utils/utils.js", "utils/rlp.js", "content_scripts/block.js"],
       "matches": [
-          "https://etherscan.io/block/*", 
-          "https://sepolia.etherscan.io/block/*", 
-          "https://holesky.etherscan.io/block/*", 
-          "https://polygonscan.com/block/*"
+          "https://*.etherscan.io/block/*", 
+          "https://*.polygonscan.com/block/*",
+          "https://*.bscscan.com/block/*",
+          "https://*.ftmscan.com/block/*",
+          "https://*.arbiscan.io/block/*"
       ]
     },
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/account.js"],
       "matches": [
-          "https://etherscan.io/address/*", 
-          "https://sepolia.etherscan.io/address/*", 
-          "https://holesky.etherscan.io/address/*", 
-          "https://polygonscan.com/address/*"
+          "https://*.etherscan.io/address/*", 
+          "https://*.polygonscan.com/address/*",
+          "https://*.bscscan.com/address/*",
+          "https://*.ftmscan.com/address/*",
+          "https://*.arbiscan.io/address/*"
       ]
     },
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/transaction.js"],
       "matches": [
-          "https://etherscan.io/tx/*", 
-          "https://sepolia.etherscan.io/tx/*", 
-          "https://holesky.etherscan.io/tx/*", 
-          "https://polygonscan.com/tx/*"
+          "https://*.etherscan.io/tx/*", 
+          "https://*.polygonscan.com/tx/*",
+          "https://*.bscscan.com/tx/*",
+          "https://*.ftmscan.com/tx/*",
+          "https://*.arbiscan.io/tx/*"
       ]
     }
   ]
