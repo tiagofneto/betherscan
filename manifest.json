@@ -19,7 +19,9 @@
           "https://*.ftmscan.com/block/*",
           "https://gnosisscan.io/block/*",
           "https://*.lineascan.build/block/*",
-          "https://*.scrollscan.com/block/*"
+          "https://*.scrollscan.com/block/*",
+          "https://fraxscan.com/block/*",
+          "https://*.snowscan.xyz/block/*"
       ]
     },
     {
@@ -31,7 +33,9 @@
           "https://*.ftmscan.com/address/*",
           "https://gnosisscan.io/address/*",
           "https://*.lineascan.build/address/*",
-          "https://*.scrollscan.com/address/*"
+          "https://*.scrollscan.com/address/*",
+          "https://fraxscan.com/address/*",
+          "https://*.snowscan.xyz/address/*"
       ]
     },
     {
@@ -43,7 +47,9 @@
           "https://*.ftmscan.com/tx/*",
           "https://gnosisscan.io/tx/*",
           "https://*.lineascan.build/tx/*",
-          "https://*.scrollscan.com/tx/*"
+          "https://*.scrollscan.com/tx/*",
+          "https://fraxscan.com/tx/*",
+          "https://*.snowscan.xyz/tx/*"
       ]
     }
   ]

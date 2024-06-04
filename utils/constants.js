@@ -16,5 +16,8 @@ const RPC_ENDPOINTS = {
     'lineascan.build': "https://rpc.linea.build",
     'sepolia.lineascan.build': "https://rpc.sepolia.linea.build",
     'scrollscan.com': "https://rpc.scroll.io",
-    'sepolia.scrollscan.com': "https://sepolia-rpc.scroll.io"
+    'sepolia.scrollscan.com': "https://sepolia-rpc.scroll.io",
+    'fraxscan.com': "https://rpc.frax.com",
+    'snowscan.xyz': "https://avalanche-c-chain-rpc.publicnode.com",
+    'testnet.snowscan.xyz': "https://avalanche-fuji-c-chain-rpc.publicnode.com"
 };
