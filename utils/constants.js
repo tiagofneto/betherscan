@@ -9,5 +9,12 @@ const RPC_ENDPOINTS = {
     'ftmscan.com': "https://fantom-rpc.publicnode.com",
     'testnet.ftmscan.com': "https://fantom-testnet-rpc.publicnode.com",
     'optimistic.etherscan.io': "https://optimism-rpc.publicnode.com",
-    'sepolia-optimism.etherscan.io': "https://optimism-sepolia-rpc.publicnode.com"
+    'sepolia-optimism.etherscan.io': "https://optimism-sepolia-rpc.publicnode.com",
+    'gnosisscan.io': "https://gnosis-rpc.publicnode.com",
+    'zkevm.polygonscan.com': "https://zkevm-rpc.com",
+    'cardona-zkevm.polygonscan.com': "https://rpc.cardona.zkevm-rpc.com",
+    'lineascan.build': "https://rpc.linea.build",
+    'sepolia.lineascan.build': "https://rpc.sepolia.linea.build",
+    'scrollscan.com': "https://rpc.scroll.io",
+    'sepolia.scrollscan.com': "https://sepolia-rpc.scroll.io"
 };

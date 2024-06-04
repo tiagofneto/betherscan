@@ -17,7 +17,9 @@
           "https://*.polygonscan.com/block/*",
           "https://*.bscscan.com/block/*",
           "https://*.ftmscan.com/block/*",
-          "https://*.arbiscan.io/block/*"
+          "https://gnosisscan.io/block/*",
+          "https://*.lineascan.build/block/*",
+          "https://*.scrollscan.com/block/*"
       ]
     },
     {
@@ -27,7 +29,9 @@
           "https://*.polygonscan.com/address/*",
           "https://*.bscscan.com/address/*",
           "https://*.ftmscan.com/address/*",
-          "https://*.arbiscan.io/address/*"
+          "https://gnosisscan.io/address/*",
+          "https://*.lineascan.build/address/*",
+          "https://*.scrollscan.com/address/*"
       ]
     },
     {
@@ -37,7 +41,9 @@
           "https://*.polygonscan.com/tx/*",
           "https://*.bscscan.com/tx/*",
           "https://*.ftmscan.com/tx/*",
-          "https://*.arbiscan.io/tx/*"
+          "https://gnosisscan.io/tx/*",
+          "https://*.lineascan.build/tx/*",
+          "https://*.scrollscan.com/tx/*"
       ]
     }
   ]
