@@ -13,13 +13,22 @@ function onDocumentReady() {
     });
 };
 
+function containsProperty(property) {
+    const container = document.getElementById("ContentPlaceHolder1_maintable");
+    
+    const xpathExpression = `//*[contains(normalize-space(.), '${property}')]`;
+
+    const res = document.evaluate(xpathExpression, container, null, XPathResult.BOOLEAN_TYPE, null);
+    return res.booleanValue;
+}
+
 function extractBlockNumberFromURL() {
     let str = window.location.pathname.split('/')[2];
     return '0x' + parseInt(str).toString(16);
 }
 
 async function fetchAdditionalData(blockNumber) {
-    return queryRPC(RPC_ENDPOINTS.MAINNET, 'eth_getBlockByNumber', [blockNumber, true]);
+    return queryRPC('eth_getBlockByNumber', [blockNumber, false]);
 }
 
 function insertElement(afterElement, dataContent, dataTitle, textArea = false) {
@@ -91,6 +100,10 @@ function displayDataOnPage(data, lastElement) {
     insertElement(lastElement, data.mixHash, "MixHash");
     insertElement(lastElement, data.receiptsRoot, "ReceiptsRoot");
     insertElement(lastElement, data.transactionsRoot, "TransactionsRoot");
+
+    if (!containsProperty("StateRoot")) {
+        insertElement(lastElement, data.stateRoot, "StateRoot");
+    }
 }
 
 function showLoadingIndicator(lastElement) {

@@ -12,15 +12,45 @@
   "content_scripts": [
     {
       "js": ["utils/constants.js", "utils/utils.js", "utils/rlp.js", "content_scripts/block.js"],
-      "matches": ["https://etherscan.io/block/*"]
+      "matches": [
+          "https://*.etherscan.io/block/*", 
+          "https://*.polygonscan.com/block/*",
+          "https://*.bscscan.com/block/*",
+          "https://*.ftmscan.com/block/*",
+          "https://gnosisscan.io/block/*",
+          "https://*.lineascan.build/block/*",
+          "https://*.scrollscan.com/block/*",
+          "https://fraxscan.com/block/*",
+          "https://*.snowscan.xyz/block/*"
+      ]
     },
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/account.js"],
-      "matches": ["https://etherscan.io/address/*"]
+      "matches": [
+          "https://*.etherscan.io/address/*", 
+          "https://*.polygonscan.com/address/*",
+          "https://*.bscscan.com/address/*",
+          "https://*.ftmscan.com/address/*",
+          "https://gnosisscan.io/address/*",
+          "https://*.lineascan.build/address/*",
+          "https://*.scrollscan.com/address/*",
+          "https://fraxscan.com/address/*",
+          "https://*.snowscan.xyz/address/*"
+      ]
     },
     {
       "js": ["utils/constants.js", "utils/utils.js", "content_scripts/transaction.js"],
-      "matches": ["https://etherscan.io/tx/*"]
+      "matches": [
+          "https://*.etherscan.io/tx/*", 
+          "https://*.polygonscan.com/tx/*",
+          "https://*.bscscan.com/tx/*",
+          "https://*.ftmscan.com/tx/*",
+          "https://gnosisscan.io/tx/*",
+          "https://*.lineascan.build/tx/*",
+          "https://*.scrollscan.com/tx/*",
+          "https://fraxscan.com/tx/*",
+          "https://*.snowscan.xyz/tx/*"
+      ]
     }
   ]
 }

@@ -1,3 +1,23 @@
 const RPC_ENDPOINTS = {
-    MAINNET: "https://ethereum.publicnode.com"
+    'etherscan.io': "https://ethereum-rpc.publicnode.com",
+    'sepolia.etherscan.io': "https://ethereum-sepolia-rpc.publicnode.com",
+    'holesky.etherscan.io': "https://ethereum-holesky-rpc.publicnode.com",
+    'polygonscan.com': "https://polygon-bor-rpc.publicnode.com",
+    'amoy.polygonscan.com': "https://polygon-amoy-bor-rpc.publicnode.com",
+    'bscscan.com': "https://bsc-rpc.publicnode.com",
+    'testnet.bscscan.com': "https://bsc-testnet-rpc.publicnode.com",
+    'ftmscan.com': "https://fantom-rpc.publicnode.com",
+    'testnet.ftmscan.com': "https://fantom-testnet-rpc.publicnode.com",
+    'optimistic.etherscan.io': "https://optimism-rpc.publicnode.com",
+    'sepolia-optimism.etherscan.io': "https://optimism-sepolia-rpc.publicnode.com",
+    'gnosisscan.io': "https://gnosis-rpc.publicnode.com",
+    'zkevm.polygonscan.com': "https://zkevm-rpc.com",
+    'cardona-zkevm.polygonscan.com': "https://rpc.cardona.zkevm-rpc.com",
+    'lineascan.build': "https://rpc.linea.build",
+    'sepolia.lineascan.build': "https://rpc.sepolia.linea.build",
+    'scrollscan.com': "https://rpc.scroll.io",
+    'sepolia.scrollscan.com': "https://sepolia-rpc.scroll.io",
+    'fraxscan.com': "https://rpc.frax.com",
+    'snowscan.xyz': "https://avalanche-c-chain-rpc.publicnode.com",
+    'testnet.snowscan.xyz': "https://avalanche-fuji-c-chain-rpc.publicnode.com"
 };
