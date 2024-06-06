@@ -17,7 +17,7 @@ function extractTxFromURL() {
 }
 
 async function fetchAdditionalData(txHash) {
-    return queryRPC(RPC_ENDPOINTS.MAINNET, 'eth_getTransactionByHash', [txHash]);
+    return queryRPC('eth_getTransactionByHash', [txHash]);
 }
 
 function insertElement(afterElement, dataContent, dataTitle) {
